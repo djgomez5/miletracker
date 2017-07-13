@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Miletracker</title>
-	<link rel="stylesheet" href="css/style.css">
+		<title>Miletracker</title>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquerymobile/1.4.3/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="css/style.css">
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11./jquery.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script> 
-
-	<script src="js/script.js"></script>js
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.4.3/jquery-ui.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>		
+		<script src="js/script.js"></script>
+		<script>
+			$(function(){
+				$(.date).each(function(){
+					$(this).datepicker();
+				});
+			});
+		</script>
 	</head>
+	<body>
+		<!-- HOMEPAGE -->
+		<div data-role="page" id="home">
+			<header data-role="header" data-theme="b">
+				<h1>Miletracker</h1>
+			</header>	
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+					<li><a href="#add" data-transition="none" data-icon="plus">Add Run</a></li>
+				</ul>
+			</div>
+
+			<div data-role="content">
+				<h3>Welcome to the MileTracker App!</h3>
+				<p>With this app you can track your running, jogging or walking miles.</p>
+
+				<h3>Your Latest Runs</h3>
+
+				<ul id="stats" data-role="listview" data-filter="true" data-filter-placeholder="Filter runs by date or distance" data-inset="true"></ul>
+				<br>
+				<button id="clearRuns" onclick="return confirm('Are You Sure?')" data-theme="b">Clear Total Milage</button>
+			</div>
+
+			<footer data-role="footer" data-them="b">
+				<h4>Miletracker &copy; 2017</h4>
+			</footer>
+		</div>
+		<!-- ADD PAGE -->
+		<div data-role="page" id="add">
+			<header data-role="header" data-theme="b">
+				<h1>Miletracker</h1>
+			</header>	
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+					<li><a href="#add" data-transition="none" data-icon="plus">Add Run</a></li>
+				</ul>
+			</div>
+
+			<div data-role="content ">
+				<h3>Add Run</h3>
+				<form id="add Form">
+					<label for="addMiles">Enter Miles: </label>
+					<input type="text" id="AddMiles">
+
+					<label for="addDate">Enter Data: </label>
+					<input type="text" data-role="date" class="date" id="addDate" data-incline="true">
+
+					<button id="submitAdd" class="ul-btn ul-btn-b ul-corder-all">Submit</button>
+			</div>
+
+			<footer data-role="footer" data-them="b">
+				<h4>Miletracker &copy; 2017</h4>
+			</footer>
+		</div>
+	</body>
 </html>
